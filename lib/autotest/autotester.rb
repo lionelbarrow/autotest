@@ -6,7 +6,7 @@ module Autotest
 
     def cases
       ast = RubyParser.new.parse(@source)
-      processor = ConditionalCountingProcessor.new(ast)
+      processor = ConditionalProcessor.new(ast)
       group = ConditionalGroup.new(processor.conditionals)
       generator = TestCaseGenerator.new(group.constraints)
       generator.test_values

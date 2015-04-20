@@ -1,5 +1,5 @@
 module Autotest
-  class ConditionalCountingProcessor < SexpProcessor
+  class ConditionalProcessor < SexpProcessor
     attr_reader :count, :conditionals
 
     def initialize(exp)

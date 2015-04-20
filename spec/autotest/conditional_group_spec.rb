@@ -4,7 +4,7 @@ describe Autotest::ConditionalGroup do
   describe "relevant_arguments" do
     it "is the set of arguments that show up in a conditional" do
       ast = RubyParser.new.parse(class_with_conditionals)
-      processor = Autotest::ConditionalCountingProcessor.new(ast)
+      processor = Autotest::ConditionalProcessor.new(ast)
       group = Autotest::ConditionalGroup.new(processor.conditionals)
 
       args = group.relevant_arguments
@@ -16,7 +16,7 @@ describe Autotest::ConditionalGroup do
   describe "constraints" do
     it "is a list of interesting break points in the conditionals" do
       ast = RubyParser.new.parse(class_with_conditionals)
-      processor = Autotest::ConditionalCountingProcessor.new(ast)
+      processor = Autotest::ConditionalProcessor.new(ast)
       group = Autotest::ConditionalGroup.new(processor.conditionals)
 
       cases = group.constraints

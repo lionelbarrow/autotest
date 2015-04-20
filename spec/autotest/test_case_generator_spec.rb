@@ -4,7 +4,7 @@ describe Autotest::TestCaseGenerator do
   describe "test_values" do
     it "generates the cross product of all input cases" do
       ast = RubyParser.new.parse(class_with_conditionals)
-      processor = Autotest::ConditionalCountingProcessor.new(ast)
+      processor = Autotest::ConditionalProcessor.new(ast)
       group = Autotest::ConditionalGroup.new(processor.conditionals)
       generator = Autotest::TestCaseGenerator.new(group.constraints)
 
@@ -15,7 +15,7 @@ describe Autotest::TestCaseGenerator do
   describe "input_cases" do
     it "is an mapping of values for each variable" do
       ast = RubyParser.new.parse(class_with_conditionals)
-      processor = Autotest::ConditionalCountingProcessor.new(ast)
+      processor = Autotest::ConditionalProcessor.new(ast)
       group = Autotest::ConditionalGroup.new(processor.conditionals)
       generator = Autotest::TestCaseGenerator.new(group.constraints)
 
