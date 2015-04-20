@@ -13,13 +13,13 @@ describe Autotest::ConditionalGroup do
     end
   end
 
-  describe "input_cases" do
+  describe "constraints" do
     it "is a list of interesting break points in the conditionals" do
       ast = RubyParser.new.parse(class_with_conditionals)
       processor = Autotest::ConditionalCountingProcessor.new(ast)
       group = Autotest::ConditionalGroup.new(processor.conditionals)
 
-      cases = group.input_cases
+      cases = group.constraints
 
       expect( cases ).to include([:arg1, :==, 1])
     end

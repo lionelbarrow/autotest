@@ -6,7 +6,7 @@ describe Autotest::TestCaseGenerator do
       ast = RubyParser.new.parse(class_with_conditionals)
       processor = Autotest::ConditionalCountingProcessor.new(ast)
       group = Autotest::ConditionalGroup.new(processor.conditionals)
-      generator = Autotest::TestCaseGenerator.new(group.input_cases)
+      generator = Autotest::TestCaseGenerator.new(group.constraints)
 
       expect( generator.test_values.count ).to eq 16
     end
@@ -17,7 +17,7 @@ describe Autotest::TestCaseGenerator do
       ast = RubyParser.new.parse(class_with_conditionals)
       processor = Autotest::ConditionalCountingProcessor.new(ast)
       group = Autotest::ConditionalGroup.new(processor.conditionals)
-      generator = Autotest::TestCaseGenerator.new(group.input_cases)
+      generator = Autotest::TestCaseGenerator.new(group.constraints)
 
       expect( generator.input_cases[:arg1] ).to eq [[:arg1, :==, 1], [:arg1, :neq, 1], [:arg1, :==, 2], [:arg1, :neq, 2]]
       expect( generator.input_cases[:arg2] ).to eq [[:arg2, :==, 2], [:arg2, :neq, 2]]

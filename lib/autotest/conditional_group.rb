@@ -16,7 +16,7 @@ module Autotest
       all_args.flatten.uniq
     end
 
-    def input_cases
+    def constraints
       cases = []
       @conditionals.each do |sexp|
         relevant_arguments.each do |arg|
