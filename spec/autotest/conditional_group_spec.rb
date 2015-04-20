@@ -9,7 +9,7 @@ describe Autotest::ConditionalGroup do
 
       args = group.relevant_arguments
 
-      expect( args ).to eq [:arg1, :arg2]
+      expect( args ).to eq [:arg1, :arg2, :arg3]
     end
   end
 

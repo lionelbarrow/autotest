@@ -6,7 +6,7 @@ describe Autotest::ConditionalCountingProcessor do
       ast = RubyParser.new.parse(class_with_conditionals)
       processor = Autotest::ConditionalCountingProcessor.new(ast)
 
-      expect( processor.count ).to eq 3
+      expect( processor.count ).to eq 4
     end
 
     it "keeps track of the s-expressions the code branches on" do
@@ -17,6 +17,7 @@ describe Autotest::ConditionalCountingProcessor do
         s(:call, s(:lvar, :arg1), :==, s(:lit, 1)),
         s(:call, s(:lvar, :arg2), :==, s(:lit, 2)),
         s(:call, s(:lvar, :arg1), :==, s(:lit, 2)),
+        s(:call, s(:lvar, :arg3), :==, s(:lit, 5)),
       ]
     end
   end
