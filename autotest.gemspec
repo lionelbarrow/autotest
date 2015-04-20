@@ -1,11 +1,9 @@
-# coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'autotest/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "autotest"
-  spec.version       = Autotest::VERSION
+  spec.version       = "0.1.0"
   spec.authors       = ["lionelbarrow"]
   spec.email         = ["code@getbraintree.com"]
   spec.description   = "Intelligently generates test inputs based on your program AST"
